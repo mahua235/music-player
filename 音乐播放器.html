@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>音乐播放器</title>
+    <link href="audio.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- 音乐播放器容器 -->
+    <div class="music-container">
+        <!-- 搜索功能 -->
+        <div class="player-heard">
+            <input type="text" class='list-search' placeholder='音乐搜索'>
+        </div>
+        <!-- 插图 -->
+        <div class="music-plate">
+            <img class="plate-past" src="cover\成都.jpg">
+            <img class="plate-now" src="cover\童话镇.jpg">
+            <img class="plate-next" src="cover\匆匆那年.jpg">
+        </div>
+        <!-- 播放文件 -->
+        <div class="music-list">
+            <audio id="id-music-playing">
+                <source src="music\童话镇.mp3">
+            </audio>
+        </div>
+        <!-- 播放列表 -->
+        <div class="music-manipulate">
+            <!-- 专辑图片 -->
+            <img src="cover\童话镇.jpg" class="music-cover">
+            <!-- 和进度条 -->
+            <div class="play-timeBar">
+                <div class="time-and-bar">
+                    <!-- 播放时间 -->
+                    <div class="play-time">
+                        <span id="id-current-time">00:00</span>
+                        <span id="id-total-time"></span>
+                    </div>
+                    <!-- 进度条 -->
+                    <div id="id-control-bar">
+                        <span id="id-music-bar" style="width:300px;"></span>
+                        <span id="id-played-bar"></span>
+                    </div>
+                </div>
+                <!-- 播放控制 -->
+                <div class="play-control">
+                    <img src="icon\淡色\播放.png" id="id-icon-play">
+                    <img src="icon\淡色\暂停.png" id="id-icon-pause" class="hidden">
+                    <img src="icon\淡色\上一首.png" id="id-icon-play-back">
+                    <img src="icon\淡色\下一首.png" id="id-icon-play-forward">
+                    <img src="icon\淡色\音量加.png" id="id-icon-volume-up">
+                    <img src="icon\淡色\音量减.png" id="id-icon-volume-down">
+                    <img src="icon\淡色\列表循环.png" id="id-icon-listcircle">
+                    <img src="icon\淡色\单曲循环.png" id="id-icon-singlecircle" class="hidden">
+                </div>
+            </div>
+            <!-- 音乐名称和作者 -->
+            <div class="music-information">
+                <span class="information-name">童话镇</span>
+                <span class="information-author">陈一发儿</span>
+            </div>
+        </div>
+
+        <div class="play-list" background-image: url(cover\童话镇.jpg)>
+
+            <table class="fixed-headers" >
+                <thead>
+                    <tr class="play-list-head">
+                        <th class="blank-th"></th>
+                        <th class="list-title">音乐标题</th>
+                        <th class="list-artist">歌手</th>
+                        <th class="list-album">专辑</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="play-list-song">
+                        <td class="song-name" data-name='成都'>成都</td>
+                        <td class="song-artist">赵雷</td>
+                        <td class="song-album">成都</td>
+                    </tr>
+                    <tr class="play-list-song">
+                        <td class="song-name" data-name='刚好遇见你'>刚好遇见你</td>
+                        <td class="song-artist">李玉刚</td>
+                        <td class="song-album">刚好遇见你</td>
+                    </tr>
+                    <tr class="play-list-song">
+                        <td class="song-name" data-name='童话镇'>童话镇</td>
+                        <td class="song-artist">陈一发儿</td>
+                        <td class="song-album">童话镇</td>
+                    </tr>
+                    <tr class="play-list-song">
+                        <td class="song-name" data-name='匆匆那年'>匆匆那年</td>
+                        <td class="song-artist">王菲</td>
+                        <td class="song-album">匆匆那年</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="audio.js"></script>
+</body>
+
+</html>
