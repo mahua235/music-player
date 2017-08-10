@@ -12,15 +12,6 @@ var dqs = function(selector) {
     return document.querySelector(selector)
 }
 
-//定义切换样式函数
-var toggleClass = function(element, className) {
-    if (element.classList.contains(className)) {
-        element.classList.remove(className)
-    } else {
-        element.classList.add(className)
-    }
-}
-
 // 对一些number 补零
 var addZero = function (arg) {
     if (arg >= 0 && arg < 10) {
@@ -183,8 +174,8 @@ var addlikeToggle = function () {
     if (targetParent.classList.contains('likes')) {
         var likeIcon = findElement(targetParent, '.icon-like')
         var unlikeIcon = findElement(targetParent, '.icon-unlike')
-        toggleClass(likeIcon, 'hidden')
-        toggleClass(unlikeIcon, 'hidden')
+        likeIcon.classList.toggle('hidden')
+        unlikeIcon.classList.toggle('hidden')
     }
 }
 
