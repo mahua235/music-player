@@ -73,12 +73,12 @@ var musicBar = dqs('#id-music-bar')
 var nextIcon = dqs('#id-icon-play-forward')
 
 // 定义音乐查找函数,并切换封面
-var findMusic = function (){
-    for (var i = 0; i < songName.length; i++){
+var findMusic = function() {
+    for (var i = 0; i < songName.length; i++) {
         var currentMusicIndex = 0
         var a = informationName.innerText
         var b = songName[i].innerText
-        if (b == a){
+        if (b == a) {
             var currentMusicIndex = i % songName.length
             var pastMusicIndex = (currentMusicIndex - 1 + songName.length) % songName.length
             var nextMusicIndex = (currentMusicIndex + 1) % songName.length
@@ -101,27 +101,12 @@ var findMusic = function (){
         }
     }
 }
-
-//定义下一首函数
+//下一首
+var platePast = dqs('.plate-past')
 var playNext = function() {
-    for (var i = 0; i < songName.length; i++){
-        var a = informationName.innerText
-        var b = songName[i].innerText
-        if (a == b){
-            // 在此处设置播放结束后下一曲的序号
-            var orderLoop = (i + 1) % songName.length
-            var f = songName[orderLoop].innerText
-            var song = "music\\" + f + '.mp3'
-            var cover = "cover\\" + f + '.jpg'
-            informationName.innerText = f
-            musicCover.src = cover
-            music.src = song
-            findMusic()
-            musicPlay()
-        }
-    }
+    findMusic()
+    musicPlay()
 }
-
 // 定义音乐播放函数
 var playIcon = dqs('#id-icon-play')
 var musicPlay = function(){
@@ -222,7 +207,7 @@ var changeMusic = function (direct){
 
 //给所有功能绑定事件
 var bindEvents = function () {
-    music.volume = 1   //设定初始播放音量
+    music.volume = 0.5  //设定初始播放音量
     playIcon.addEventListener('click', musicPlay)    // 音乐播放、暂停
     pauseIcon.addEventListener('click', musicPause)  // 暂停
     // music 载入音乐需要时间, 载入完成后会触发 'canplay' 事件
@@ -266,10 +251,10 @@ var bindEvents = function () {
     var volumeup = dqs('#id-icon-volume-up')
     var volumedown = dqs('#id-icon-volume-down')
     volumeup.addEventListener('click',function(event){
-        music.volume+=0.1
+        music.volume+=0.05
     })
     volumedown.addEventListener('click',function(event){
-        music.volume-=0.1
+        music.volume-=0.05
     })
     // 歌曲搜索功能
     listSearch.addEventListener('keyup', function(event){
